@@ -1,3 +1,5 @@
+'use strict';
+
 require('mocha-as-promised')();
 
 var chai   = require('chai');

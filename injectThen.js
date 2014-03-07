@@ -1,3 +1,5 @@
+'use strict';
+
 var internals = {};
 
 internals.injectThen = function (Promise, options) {
