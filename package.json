@@ -1,8 +1,8 @@
 {
-  "name": "injectThen",
+  "name": "inject-then",
   "version": "0.0.1",
   "description": "Promise wrapper for Hapi's server.inject",
-  "main": "injectThen.js",
+  "main": "inject-then.js",
   "scripts": {
     "test": "mocha test.js"
   },
@@ -18,9 +18,9 @@
   "author": "Ben Drucker <bvdrucker@gmail.com> (http://bendrucker.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/valet-io/injectThen/issues"
+    "url": "https://github.com/valet-io/inject-then/issues"
   },
-  "homepage": "https://github.com/valet-io/injectThen",
+  "homepage": "https://github.com/valet-io/inject-then",
   "devDependencies": {
     "mocha-as-promised": "~2.0.0",
     "chai-as-promised": "~4.1.1",

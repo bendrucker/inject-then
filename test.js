@@ -9,19 +9,19 @@ chai.use(require('chai-as-promised'));
 var Promise = require('bluebird');
 var Hapi    = require('hapi');
 
-describe('injectThen', function () {
+describe('inject-then', function () {
 
   var server;
   beforeEach(function (done) {
     server = new Hapi.Server();
-    server.pack.require('../injectThen', {
+    server.pack.require('.', {
       Promise: Promise
     }, done);
   })
 
   it('requires a promise constructor', function (done) {
     server = new Hapi.Server();
-    server.pack.require('../injectThen', function (err) {
+    server.pack.require('.', function (err) {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.message).to.contain('Promise');
       done();
