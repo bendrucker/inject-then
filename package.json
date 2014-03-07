@@ -1,0 +1,35 @@
+{
+  "name": "injectThen",
+  "version": "0.0.0",
+  "description": "Promise wrapper for Hapi's server.inject",
+  "main": "injectThen.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/valet-io/injectThen.git"
+  },
+  "keywords": [
+    "hapi",
+    "spumko",
+    "promise"
+  ],
+  "author": "Ben Drucker <bvdrucker@gmail.com> (http://bendrucker.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/valet-io/injectThen/issues"
+  },
+  "homepage": "https://github.com/valet-io/injectThen",
+  "devDependencies": {
+    "mocha-as-promised": "~2.0.0",
+    "chai-as-promised": "~4.1.1",
+    "chai": "~1.9.0",
+    "mocha": "~1.17.1",
+    "hapi": "~2.6.0",
+    "bluebird": "~1.0.8"
+  },
+  "peerDependencies": {
+    "hapi": ">=2.x.x"
+  }
+}
