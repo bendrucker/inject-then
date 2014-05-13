@@ -1,7 +1,5 @@
 'use strict';
 
-require('mocha-as-promised')();
-
 var chai   = require('chai');
 var expect = chai.expect;
 chai.use(require('chai-as-promised'));
@@ -17,13 +15,17 @@ describe('inject-then', function () {
     server.pack.require('.', {
       Promise: Promise
     }, done);
-  })
+  });
 
-  it('requires a promise constructor', function (done) {
+  it('defaults to Bluebird', function () {
+    expect(server.injectThen().catch(function () {})).to.be.an.instanceOf(Promise);
+  });
+
+  it('can use a promise constructor', function (done) {
+    var PromiseCtor = function () {};
     server = new Hapi.Server();
-    server.pack.require('.', function (err) {
-      expect(err).to.be.an.instanceOf(Error);
-      expect(err.message).to.contain('Promise');
+    server.pack.require('.', {Promise: PromiseCtor}, function () {
+      expect(server.injectThen()).to.be.an.instanceOf(PromiseCtor);
       done();
     });
   });
