@@ -1,6 +1,6 @@
 {
   "name": "inject-then",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Promise wrapper for Hapi's server.inject",
   "main": "inject-then.js",
   "scripts": {
@@ -25,10 +25,10 @@
     "chai-as-promised": "~4.1.1",
     "chai": "~1.9.0",
     "mocha": "~1.18.2",
-    "hapi": "~2.6.0"
+    "hapi": "~6.0.0"
   },
   "peerDependencies": {
-    "hapi": ">=2.x.x"
+    "hapi": ">=6.x.x"
   },
   "dependencies": {
     "bluebird": "~1.x"

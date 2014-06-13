@@ -4,11 +4,11 @@ inject-then [![Build Status](https://travis-ci.org/bendrucker/inject-then.png?br
 Promise wrapper for [Hapi](https://github.com/spumko/hapi)'s server.inject. When [registering](https://github.com/spumko/hapi/blob/master/docs/Reference.md#packregisterplugin-options-callback) the plugin, you can use the `Promise` option to specify promise constructor. [Bluebird](https://github.com/petkaantonov/bluebird) is used if no constructor is specified.
 
 ```js
-pack.require('injectThen');
+pack.register(require('injectThen'));
 ```
 
 ```js
-pack.require('injectThen', {
+pack.register(require('injectThen'), {
   Promise: require('rsvp')
 });
 ```

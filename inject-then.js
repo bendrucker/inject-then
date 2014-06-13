@@ -17,3 +17,8 @@ exports.register = function (plugin, options, next) {
   });
   next();
 };
+
+exports.register.attributes = {
+    multiple: true,
+    pkg: require('./package.json')
+};
