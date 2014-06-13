@@ -12,13 +12,12 @@ describe('inject-then', function () {
   var server;
   beforeEach(function (done) {
     server = new Hapi.Server();
-    server.pack.register(
-      {
-        plugin: require('.'),
-        options: {
-          Promise: Promise
-        }
-      }, done);
+    server.pack.register({
+      plugin: require('./'),
+      options: {
+        Promise: Promise
+      }
+    }, done);
   });
 
   it('defaults to Bluebird', function () {
@@ -28,13 +27,12 @@ describe('inject-then', function () {
   it('can use a promise constructor', function (done) {
     var PromiseCtor = function () {};
     server = new Hapi.Server();
-    server.pack.register(
-      {
-        plugin: require('.'),
-        options: {
-          Promise:PromiseCtor
-        }
-      }, function () {
+    server.pack.register({
+      plugin: require('./'),
+      options: {
+        Promise:PromiseCtor
+      }
+    }, function () {
       expect(server.injectThen()).to.be.an.instanceOf(PromiseCtor);
       done();
     });
