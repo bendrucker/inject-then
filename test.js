@@ -18,6 +18,13 @@ describe('inject-then', function () {
         Promise: Promise
       }
     }, done);
+    server.route({
+      path: '/test',
+      method: 'GET',
+      handler: function (request, reply) {
+        reply('hello');
+      }
+    });
   });
 
   it('defaults to Bluebird', function () {
@@ -30,7 +37,7 @@ describe('inject-then', function () {
     server.pack.register({
       plugin: require('./'),
       options: {
-        Promise:PromiseCtor
+        Promise: PromiseCtor
       }
     }, function () {
       expect(server.injectThen()).to.be.an.instanceOf(PromiseCtor);
@@ -43,17 +50,17 @@ describe('inject-then', function () {
   });
 
   it('resolves with the injection response', function () {
-    server.route({
-      path: '/test',
-      method: 'GET',
-      handler: function (request, reply) {
-        reply('hello');
-      }
-    });
-
     return server.injectThen('/test').then(function (response) {
       expect(response.result).to.equal('hello');
     });
+  });
+
+  it('propogates rejections properly (#2)', function () {
+    var err = new Error();
+    return expect(server.injectThen('/test').then(function () {
+      throw err;
+    }))
+    .to.be.rejectedWith(err);
   });
 
 });
