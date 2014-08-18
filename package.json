@@ -28,9 +28,9 @@
     "mocha": "~1.20.1"
   },
   "peerDependencies": {
-    "hapi": "6.x"
+    "hapi": "^6.5.0"
   },
   "dependencies": {
-    "bluebird": "~2.x"
+    "bluebird": "^2.3.0"
   }
 }
