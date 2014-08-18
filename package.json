@@ -1,6 +1,6 @@
 {
   "name": "inject-then",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Promise wrapper for Hapi's server.inject",
   "main": "inject-then.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "devDependencies": {
     "chai": "~1.9.1",
     "chai-as-promised": "~4.1.1",
-    "hapi": "~6.0.0",
+    "hapi": "^6.5.0",
     "mocha": "~1.20.1"
   },
   "peerDependencies": {
