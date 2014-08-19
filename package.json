@@ -1,6 +1,6 @@
 {
   "name": "inject-then",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Promise wrapper for Hapi's server.inject",
   "main": "inject-then.js",
   "scripts": {
@@ -22,15 +22,15 @@
   },
   "homepage": "https://github.com/bendrucker/inject-then",
   "devDependencies": {
-    "chai": "~1.9.1",
-    "chai-as-promised": "~4.1.1",
-    "hapi": "^6.5.0",
-    "mocha": "~1.20.1"
+    "chai": "1",
+    "chai-as-promised": "4",
+    "hapi": "6",
+    "mocha": "1"
   },
   "peerDependencies": {
-    "hapi": "^6.5.0"
+    "hapi": "6"
   },
   "dependencies": {
-    "bluebird": "^2.3.0"
+    "bluebird": "2"
   }
 }
