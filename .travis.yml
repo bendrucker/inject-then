@@ -9,4 +9,5 @@ deploy:
     secure: A2vpVC+7JazTbHFDfVyHSRdhQRnBJ/m09ejm0j9I8PphoSkNFOy2hUvRRX5xaFhvDBubW5Zq7LXODJXZhAFxo+iT+5m+GvtJWHEjqlY0+V9C2kmVWu17epOys/yBCMo8QNWRiu7QVbmAffseqHO2tnKS9QGQqzCF6bLecQtMSRY=
   on:
     tags: true
+    all_branches: true
     repo: bendrucker/inject-then
