@@ -1,6 +1,6 @@
 {
   "name": "inject-then",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Promise wrapper for Hapi's server.inject",
   "main": "inject-then.js",
   "scripts": {
