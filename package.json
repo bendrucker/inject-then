@@ -24,11 +24,11 @@
   "devDependencies": {
     "chai": "1",
     "chai-as-promised": "4",
-    "hapi": "6",
+    "hapi": "7",
     "mocha": "1"
   },
   "peerDependencies": {
-    "hapi": "6"
+    "hapi": "6 || 7"
   },
   "dependencies": {
     "bluebird": "2"
