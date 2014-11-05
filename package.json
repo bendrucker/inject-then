@@ -25,6 +25,7 @@
     "chai": "1",
     "chai-as-promised": "4",
     "hapi": "7",
+    "istanbul": "~0.3.2",
     "mocha": "1"
   },
   "peerDependencies": {
