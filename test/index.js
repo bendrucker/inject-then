@@ -11,7 +11,7 @@ describe('inject-then', function () {
 
   function register (options) {
     server.pack.register({
-      plugin: require('./'),
+      plugin: require('../'),
       options: options
     }, function (err) {
       if (err) throw err;
