@@ -2,18 +2,27 @@
 
 var bluebird = require('bluebird');
 
-var internals = {};
-
-internals.injectThen = function (Promise, options) {
-  var server = this;
-  return new Promise(function (resolve) {
-    server.inject(options, resolve);
-  });
-};
-
 exports.register = function (plugin, options, next) {
   plugin.servers.forEach(function (server) {
-    server.injectThen = internals.injectThen.bind(server, options.Promise || bluebird);
+    var Promise = options.Promise || bluebird;
+    var inject  = server.inject;
+
+    function injectThen (options, callback) {
+      var self = this;
+      return new Promise(function (resolve) {
+        self.inject(options, resolve);
+      })
+      .then(function (response) {
+        if (typeof callback === 'function') {
+          callback(response);
+        }
+        return response;
+      });
+    }
+    server.injectThen = injectThen;
+    if (options.replace) {
+      server.inject = injectThen;
+    }
   });
   next();
 };
