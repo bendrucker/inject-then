@@ -9,18 +9,10 @@ var Hapi    = require('hapi');
 
 describe('inject-then', function () {
 
-  function register (options) {
-    server.pack.register({
-      plugin: require('../'),
-      options: options
-    }, function (err) {
-      if (err) throw err;
-    });
-  }
-
   var server;
   beforeEach(function () {
     server = new Hapi.Server();
+    server.connection();
     server.route({
       path: '/test',
       method: 'GET',
@@ -29,6 +21,15 @@ describe('inject-then', function () {
       }
     });
   });
+
+  function register (options) {
+    server.register({
+      register: require('../'),
+      options: options
+    }, function (err) {
+      if (err) throw err;
+    });
+  }
 
   it('defaults to Bluebird', function () {
     register();
@@ -51,28 +52,9 @@ describe('inject-then', function () {
     expect(server).to.itself.respondTo('injectThen');
   });
 
-  it('can replace server.inject', function () {
-    register({
-      replace: true
-    });
-    expect(server.inject).to.equal(server.injectThen);
-  });
-
   it('resolves with the injection response', function () {
     register();
     return server.injectThen('/test').then(function (response) {
-      expect(response.result).to.equal('hello');
-    });
-  });
-
-  it('accepts a callback for compatibility with server.inject', function () {
-    register();
-    var called = false;
-    return server.injectThen('/test', function () {
-      called = true
-      return 'ignored';
-    })
-    .then(function (response) {
       expect(response.result).to.equal('hello');
     });
   });
@@ -92,6 +74,13 @@ describe('inject-then', function () {
     return server.injectThen('/test').then(function (response) {
       expect(response.result).to.equal('hello');
     });
+  });
+
+  it('throws when options.replace is used', function () {
+    expect(register.bind(null, {
+      replace: true
+    }))
+    .to.throw('options.replace was removed');
   });
 
 });

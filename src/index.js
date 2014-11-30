@@ -1,29 +1,18 @@
 'use strict';
 
 var bluebird = require('bluebird');
+var assert   = require('assert');
 
-exports.register = function (plugin, options, next) {
-  plugin.servers.forEach(function (server) {
-    var Promise = options.Promise || bluebird;
-    var inject  = server.inject;
-
-    function injectThen (options, callback) {
-      var self = this;
-      return new Promise(function (resolve) {
-        self.inject(options, resolve);
-      })
-      .then(function (response) {
-        if (typeof callback === 'function') {
-          callback(response);
-        }
-        return response;
-      });
-    }
-    server.injectThen = injectThen;
-    if (options.replace) {
-      server.inject = injectThen;
-    }
-  });
+exports.register = function (server, options, next) {
+  var Promise = options.Promise || bluebird;
+  assert(!options.replace, 'options.replace was removed');
+  function injectThen (options) {
+    var self = this;
+    return new Promise(function (resolve) {
+      self.inject(options, resolve);
+    });
+  }
+  if (!server.injectThen) server.decorate('server', 'injectThen', injectThen);
   next();
 };
 
