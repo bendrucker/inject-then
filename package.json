@@ -24,12 +24,12 @@
   "devDependencies": {
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
-    "hapi": "^8.0.0",
+    "hapi": "^9.0.0",
     "istanbul": "^0.3.2",
     "mocha": "^2.0.1"
   },
   "peerDependencies": {
-    "hapi": "^8.0.0"
+    "hapi": ">=8 <10"
   },
   "dependencies": {
     "bluebird": "^2.3.11"
