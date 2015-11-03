@@ -2,9 +2,9 @@
   "name": "inject-then",
   "version": "2.0.2",
   "description": "Promise wrapper for Hapi's server.inject",
-  "main": "./src",
+  "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha --"
+    "test": "istanbul cover _mocha test.js --"
   },
   "repository": {
     "type": "git",

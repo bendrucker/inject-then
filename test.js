@@ -24,7 +24,7 @@ describe('inject-then', function () {
 
   function register (options) {
     server.register({
-      register: require('../'),
+      register: require('./'),
       options: options
     }, function (err) {
       if (err) throw err;

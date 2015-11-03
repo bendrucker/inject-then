@@ -18,5 +18,5 @@ exports.register = function (server, options, next) {
 
 exports.register.attributes = {
   multiple: true,
-  pkg: require('../package.json')
+  pkg: require('./package.json')
 };
