@@ -1,86 +1,86 @@
-'use strict';
+'use strict'
 
-var chai   = require('chai');
-var expect = chai.expect;
-chai.use(require('chai-as-promised'));
+/* global describe:false, beforeEach: fakse, it:false */
 
-var Promise = require('bluebird');
-var Hapi    = require('hapi');
+var chai = require('chai')
+var expect = chai.expect
+chai.use(require('chai-as-promised'))
+
+var Promise = require('bluebird')
+var Hapi = require('hapi')
 
 describe('inject-then', function () {
-
-  var server;
+  var server
   beforeEach(function () {
-    server = new Hapi.Server();
-    server.connection();
+    server = new Hapi.Server()
+    server.connection()
     server.route({
       path: '/test',
       method: 'GET',
       handler: function (request, reply) {
-        reply('hello');
+        reply('hello')
       }
-    });
-  });
+    })
+  })
 
   function register (options) {
     server.register({
       register: require('./'),
       options: options
     }, function (err) {
-      if (err) throw err;
-    });
+      if (err) throw err
+    })
   }
 
   it('defaults to Bluebird', function () {
-    register();
-    expect(server.injectThen().catch(function () {})).to.be.an.instanceOf(Promise);
-  });
+    register()
+    expect(server.injectThen().catch(function () {})).to.be.an.instanceOf(Promise)
+  })
 
   it('can use a promise constructor', function () {
-    var PromiseCtor = function () {};
+    var PromiseCtor = function () {}
     PromiseCtor.prototype.then = function () {
-      return this;
-    };
+      return this
+    }
     register({
       Promise: PromiseCtor
-    });
-    expect(server.injectThen()).to.be.an.instanceOf(PromiseCtor);
-  });
+    })
+    expect(server.injectThen()).to.be.an.instanceOf(PromiseCtor)
+  })
 
   it('registers a server.injectThen method', function () {
-    register();
-    expect(server).to.itself.respondTo('injectThen');
-  });
+    register()
+    expect(server).to.itself.respondTo('injectThen')
+  })
 
   it('resolves with the injection response', function () {
-    register();
+    register()
     return server.injectThen('/test').then(function (response) {
-      expect(response.result).to.equal('hello');
-    });
-  });
+      expect(response.result).to.equal('hello')
+    })
+  })
 
   it('propogates rejections properly (#2)', function () {
-    register();
-    var err = new Error();
+    register()
+    var err = new Error()
     return expect(server.injectThen('/test').then(function () {
-      throw err;
+      throw err
     }))
-    .to.be.rejectedWith(err);
-  });
+      .to.be.rejectedWith(err)
+  })
 
   it('can be registered multiple times', function () {
-    register();
-    register();
+    register()
+    register()
     return server.injectThen('/test').then(function (response) {
-      expect(response.result).to.equal('hello');
-    });
-  });
+      expect(response.result).to.equal('hello')
+    })
+  })
 
   it('throws when options.replace is used', function () {
     expect(register.bind(null, {
       replace: true
     }))
-    .to.throw('options.replace was removed');
-  });
-
-});
+      .to.throw('options.replace was removed')
+  })
+})
