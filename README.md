@@ -11,8 +11,8 @@ $ npm install inject-then
 
 ```js
 server.register(require('inject-then'), function (err) {
-  if (err) throw err;
-});
+  if (err) throw err
+})
 ```
 
 ## API
@@ -22,9 +22,9 @@ server.register(require('inject-then'), function (err) {
 ```js
 server.injectThen('/posts')
   .then(function (response) {
-    assert.equal(response.statusCode, 200);
-    console.log('Success!');
-  });
+    assert.equal(response.statusCode, 200)
+    console.log('Success!')
+  })
 ```
 
 ## Options
