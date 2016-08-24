@@ -27,7 +27,7 @@
     "hapi": "^14.0.0",
     "istanbul": "^0.4.0",
     "mocha": "^3.0.0",
-    "standard": "^7.1.2"
+    "standard": "^8.0.0"
   },
   "peerDependencies": {
     "hapi": ">=8 <15"
