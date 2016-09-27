@@ -23,7 +23,7 @@
   "homepage": "https://github.com/bendrucker/inject-then",
   "devDependencies": {
     "chai": "^3.4.0",
-    "chai-as-promised": "^5.1.0",
+    "chai-as-promised": "^6.0.0",
     "hapi": "^15.0.0",
     "istanbul": "^0.4.0",
     "mocha": "^3.0.0",
