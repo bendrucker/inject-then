@@ -1,7 +1,9 @@
 inject-then [![Build Status](https://travis-ci.org/bendrucker/inject-then.svg?branch=master)](https://travis-ci.org/bendrucker/inject-then) [![NPM version](https://badge.fury.io/js/inject-then.svg)](http://badge.fury.io/js/inject-then)
 ==========
 
-Promise wrapper for [Hapi](https://github.com/spumko/hapi)'s server.inject.
+> Promise wrapper for [Hapi](https://github.com/spumko/hapi)'s `server.inject`.
+
+*`hapi@12`* and above return a promise when no callback is passed to `server.inject`. Use `inject-then` for hapi versions less than `12`.
 
 ## Setup
 

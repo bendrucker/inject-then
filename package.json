@@ -30,7 +30,7 @@
     "standard": "^8.0.0"
   },
   "peerDependencies": {
-    "hapi": ">=8 <17"
+    "hapi": ">=8"
   },
   "dependencies": {
     "bluebird": "^3.4.1"
