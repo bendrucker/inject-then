@@ -1,4 +1,4 @@
-inject-then [![Build Status](https://travis-ci.org/bendrucker/inject-then.svg?branch=master)](https://travis-ci.org/bendrucker/inject-then) [![NPM version](https://badge.fury.io/js/inject-then.svg)](http://badge.fury.io/js/inject-then)
+inject-then [![Build Status](https://travis-ci.org/bendrucker/inject-then.svg?branch=master)](https://travis-ci.org/bendrucker/inject-then) [![NPM version](https://badge.fury.io/js/inject-then.svg)](http://badge.fury.io/js/inject-then) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/inject-then.svg)](https://greenkeeper.io/)
 ==========
 
 > Promise wrapper for [Hapi](https://github.com/spumko/hapi)'s `server.inject`.
